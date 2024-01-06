@@ -7,7 +7,7 @@ import { fetchChores } from "./redux/slices/choresSlice.js";
 
 // this will first go to the dom, and get the div with the id of "root",
 // and then render the app into that
-const domNode = document.getElementById('root');
+const domNode = document.getElementById("root");
 const root = createRoot(domNode);
 root.render(
   <Provider store={store}>
