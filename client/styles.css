@@ -1,5 +1,5 @@
 #createChoreContainer {
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 body {
@@ -20,4 +20,8 @@ button {
 
 input {
     display: flex;
+}
+
+#ChoreCard {
+    border: 1px solid black;
 }
