@@ -1,6 +1,5 @@
-
-const db = require('../models/choreifyModels.js');
-const queries = require('../models/queries.js');
+const db = require('../models/choreifyModels');
+const queries = require('../models/queries');
 
 const choreController = {};
 
@@ -20,10 +19,11 @@ choreController.getChores = (req, res, next) => {
 choreController.createChore = (req, res, next) => {
   // paramaterize the query
   // console.log(req.body);
-  // const arr = [title, description, group_id, chore_status, due_date, assigner_id, created_date] = req.body;
+  // const arr = [title, description, group_id, chore_status, due_date, assigner_id,
+  // created_date] = req.body;
   // console.log(arr);
 
-  const arr =['feed the cat', 'feed the cat her favorite cat food', 1, 'assigned', 'end of the week', 1, (new Date()).toLocaleString("en-US")]
+  const arr = ['feed the cat', 'feed the cat her favorite cat food', 1, 'assigned', 'end of the week', 1, (new Date()).toLocaleString('en-US')];
   // pass the params into the function that will insert them in the query
   // then insert them into the database using db.query
   db.query(queries.createChore, arr)
@@ -35,7 +35,6 @@ choreController.createChore = (req, res, next) => {
         next({ err: 'Problem creating new chore in database' });
       }
     });
-
 };
 
 module.exports = choreController;
