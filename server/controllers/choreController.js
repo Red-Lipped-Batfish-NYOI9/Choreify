@@ -1,4 +1,5 @@
 const db = require('/models/choreifyModels.js');
+const queries = require('../models/queries.js');
 
 const choreController = {};
 

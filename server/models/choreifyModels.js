@@ -17,5 +17,5 @@ module.exports = {
   },
 };
 
-pool.query('SELECT * FROM chores;')
-.then((data) => console.log(data));
+// pool.query('SELECT * FROM chores;')
+// .then((data) => console.log(data));
