@@ -7,7 +7,10 @@ export default function CreateChore() {
   const [owner, setOwner] = useState('');
   const [date, setDate] = useState('');
 
-  const someHelperFunction = () => console.log('test');
+  const someHelperFunction = () => {
+    e.preventDefault();
+    console.log('test');
+  }
 
   return (
     <div id="createChoreContainer">
@@ -26,7 +29,7 @@ export default function CreateChore() {
             onChange={(e) => setOwner(e.target.value)}
           />
         </label>
-        <label> Due Date:
+        <label> Due Date: 
           <input
             type="text"
             value={date}
