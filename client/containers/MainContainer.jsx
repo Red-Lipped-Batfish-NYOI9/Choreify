@@ -3,7 +3,8 @@ import CreateChore from '../components/CreateChore.jsx'
 
 export default function MainContainer () {
     return (
-        <div>This is a div in the MainContainer
+        <div>
+            <h1>This is the MainContainer</h1>
             <CreateChore />
         </div>
     )
