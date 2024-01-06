@@ -16,6 +16,3 @@ module.exports = {
     return pool.query(text, params, callback);
   },
 };
-
-// pool.query('SELECT * FROM chores;')
-// .then((data) => console.log(data));

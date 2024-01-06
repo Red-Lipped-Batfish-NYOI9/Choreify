@@ -25,7 +25,7 @@ app.use('/', (err, req, res, next) => {
     message: { err: 'An error occurred' },
   };
   const errorObj = { ...defaultErr, err };
-  res.statsu(errorObj.status).json(errorObj.message);
+  res.status(errorObj.status).json(errorObj.message);
 });
 
 // Starts the server on port 3000

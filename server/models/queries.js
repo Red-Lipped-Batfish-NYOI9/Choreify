@@ -3,14 +3,12 @@
 const queries = {};
 
 // eslint-disable-next-line arrow-body-style
-queries.getAllChores = () => {
-  return 'SELECT * FROM chores;';
-};
+queries.getAllChores = ('SELECT * FROM chores;');
 
-queries.createChore = () => {
-  return `INSERT INTO chores `
-    + `(title, description, group_id, status, due_date, assigner_id, created_date) `
-    + `VALUES ('test chore from backend', 'this was created in our app', 1, 'assigned', 'now', 1, CURRENT_TIMESTAMP);`;
-};
+queries.createChore = (
+  `INSERT INTO chores `
+    + `(title, description, group_id, chore_status, due_date, assigner_id, created_date) `
+    + `VALUES ($1, $2, $3, $4, $5, $6, $7);`
+);
 
-export default queries;
+module.exports = queries;
