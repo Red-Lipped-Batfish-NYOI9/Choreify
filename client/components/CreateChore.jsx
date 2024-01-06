@@ -9,7 +9,7 @@ export default function CreateChore() {
 
   const someHelperFunction = () => {
     e.preventDefault();
-    console.log('test');
+    console.log('tests');
   }
 
   return (
