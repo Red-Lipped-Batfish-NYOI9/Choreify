@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { choresApi } from "../api/apiTest";
+import { choresApi } from "../api/chores/choresApi";
 /* 
 Redux Toolkit automatically infers actions
 So here, we only define slices. Slices are objects that deal with a particular part of our store.
@@ -19,12 +19,11 @@ export const choresSlice = createSlice({
       state.chores.data.action.payload.id = action.payload; //Expects all chore data structure to be passed
     },
     modify: (state, action) => {
-        state.chores.data.action.payload.id = action.payload; //Expects all chore data structure to be passed
+      state.chores.data.action.payload.id = action.payload; //Expects all chore data structure to be passed
     },
-    delete: (state, action) => {
-        delete state.chores.data.action.payload.id; //Expects chore id to be passed
-    }
-   
+    deleteOne: (state, action) => {
+      delete state.chores.data.action.payload.id; //Expects chore id to be passed
+    },
   },
   extraReducers(builder) {
     //Used for reducers that were not defined and auto-assigned action creators inside our slice - particular use cases
@@ -67,25 +66,19 @@ export const choresSlice = createSlice({
   },
 });
 
-export const { add, modify, delete } = productSlice.actions;
+export const { add, modify, deleteOne } = productSlice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
 // will call the thunk with the `dispatch` function as the first argument. Async
 // code can then be executed and other actions can be dispatched
 
-
-export const fetchChores = createAsyncThunk(
-  "chores/fetchChores",
-  async () => {
-    const response = await fetch(
-      "http://localhost:8080/api/chores/"
-    );
-    const data = await response.json();
-    console.log("#### fetchChores ", data);
-    return data;
-  }
-);
+export const fetchChores = createAsyncThunk("chores/fetchChores", async () => {
+  const response = await fetch("http://localhost:8080/api/chores/");
+  const data = await response.json();
+  console.log("#### fetchChores ", data);
+  return data;
+});
 
 /*-------------------//     The function below is called a selector and allows us to select a value from
 //      SELECTORS    //     the state. Selectors can also be defined inline where they're used instead of
@@ -96,13 +89,13 @@ export const selectAllChores = (state) => {
 };
 
 export const selectChoresById = (state, choreIdsObj) => {
-    const selectedChores = [];  
-    for(let id in choreIdsObj){
-        if(state.chores.choreIdsObj[id]){
-            selectedChores.push(state.chores.choreIdsObj[id])
-        }
+  const selectedChores = [];
+  for (let id in choreIdsObj) {
+    if (state.chores.choreIdsObj[id]) {
+      selectedChores.push(state.chores.choreIdsObj[id]);
     }
-    return selectedChores;
-}
+  }
+  return selectedChores;
+};
 
 export default choresSlice.reducer;
