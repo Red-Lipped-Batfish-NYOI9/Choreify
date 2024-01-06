@@ -7,6 +7,17 @@ body {
 }
 
 form {
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    width: 25%;
+}
+
+button {
+    width: fit-content;
+}
+
+input {
+    display: flex;
 }
