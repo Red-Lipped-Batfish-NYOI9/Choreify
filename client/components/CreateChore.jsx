@@ -1,19 +1,20 @@
 import React from 'react';
 import { useState } from 'react';
-import '../styles.css'
+import '../styles.css';
 
 export default function CreateChore() {
   const [initialChore, setChore] = useState('');
   const [owner, setOwner] = useState('');
   const [date, setDate] = useState('');
 
-  const someHelperFunction = () => {
+  const someHelperFunction = (e) => {
     e.preventDefault();
-    console.log('test');
-  }
+    console.log('tests');
+  };
 
   return (
     <div id="createChoreContainer">
+      <h2>Create Chore</h2>
       <form onSubmit={someHelperFunction}>
         <label> Chore Title:
           <input
