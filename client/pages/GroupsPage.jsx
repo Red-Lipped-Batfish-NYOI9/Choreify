@@ -1,5 +1,11 @@
-import React from "react";
+import React from 'react';
+// eslint-disable-next-line import/extensions
+import NewGroupContainer from '../containers/NewGroupContainer.jsx';
 
 export default function GroupsPage() {
-  return <div>Groups Page</div>;
+  return (
+    <div>
+      <NewGroupContainer />
+    </div>
+  );
 }
