@@ -1,36 +1,48 @@
-*{
-    font-family: 'Century Gothic'
-}
-
-#createChoreContainer {
-    border: 1px solid black;
-}
-
 body {
-    background-color: lightgray;
+    background: linear-gradient(117deg, rgba(70, 129, 137, 0.10) 9.51%, rgba(7, 87, 98, 0.10) 95.18%), #FFF;
 }
 
-form {
-    border: 1px solid black;
+#swimLanes {
+    display: inline-flex;
+    height: 991px;
+    padding-bottom: 180px;
+    align-items: flex-start;
+    gap: 25px;
+    flex-shrink: 0;
+}
+
+#lane {
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.10);
     display: flex;
+    /* width: 258px; */
+    padding: 15px;
     flex-direction: column;
-    justify-content: center;
-    width: 25%;
+    align-items: flex-start;
+    /* gap: 28px; */
 }
 
 button {
-    width: fit-content;
+    width: 100%;
+    background-color: lightblue;
+    /* color: white; */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
 }
 
 input {
     display: flex;
-}
-
-#ChoreCard {
-
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 25%;
+    padding: 2px;
+    /* border: 1px solid black; */
 }

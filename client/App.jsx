@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import React from 'react';
 import MainContainer from './containers/MainContainer.jsx';
 

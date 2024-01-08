@@ -5,8 +5,8 @@ export default function ChoreCard() {
   const [chore, setChore] = useState('');
 
   return (
-    <div id="ChoreCard">
-      <h2>Not Started</h2>
+    <div id="lane">
+      <h2>Chores Not Started</h2>
       <p>
         Chore:
         {' '}
