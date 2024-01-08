@@ -2,27 +2,25 @@
 import React from 'react';
 import styles from '../stylesheets/Groups.module.css';
 
-export default function Group() {
-  // in here, we are going to make a fetch request to get all groups,
-  // then we are going to render them into the div below
+export default function Group(props) {
+  const members = [];
+  const roles = [];
 
+  for (let i = 0; i < props.members.length; i++) {
+    members.push(<div className={styles.box} key={props.members[i]}>{props.members[i]}</div>);
+    roles.push(<div className={styles.box} key={`${props.members[i]}-role`}>User</div>);
+  }
   return (
     <div className={styles.groupInfoCard}>
-      <h3>Group Name</h3>
+      <h2>{props.group_name}</h2>
       <div className={styles.columnHolder}>
         <div className={styles.column}>
-          Member Name
-          <div className={styles.box}>Member 1</div>
-          <div className={styles.box}>Member 2</div>
-          <div className={styles.box}>Member 3</div>
-          <div className={styles.box}>Member 4</div>
+        <div className={styles.box_header}>Member Name</div>
+          {members}
         </div>
         <div className={styles.column}>
-          Member role
-          <div className={styles.box}>Admin</div>
-          <div className={styles.box}>User</div>
-          <div className={styles.box}>User</div>
-          <div className={styles.box}>User</div>
+          <div className={styles.box_header}>Role</div>
+          {roles}
         </div>
       </div>
     </div>

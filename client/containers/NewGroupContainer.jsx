@@ -8,22 +8,20 @@ export default function NewGroupContainer() {
   // in here, we are going to get the data and then render that into the div
   const { data, error, isLoading } = useGetAllGroupsQuery();
 
-  //console.log(data);
+  const groupsArr = [];
+
+  if (!isLoading) {
+    for (let i = 0; i < data.length; i++) {
+      groupsArr.push(<Group key={data[i].group_id} group_name={data[i].group_name} members={data[i].members}/>);
+    }
+  }
 
   return (
-    <div>
+    <div class={styles.newGroupParent}>
       <h1>All Groups:</h1>
       <div className={styles.newGroupContainer}>
-        <Group />
-        <Group />
-        <Group />
-        <Group />
-        <Group />
-        <Group />
-        <Group />
-        <Group />
+        {isLoading ? 'Loading...' : groupsArr}
       </div>
-      <div>This is abutton that when clicked will redirect to create a new group</div>
     </div>
   );
 }

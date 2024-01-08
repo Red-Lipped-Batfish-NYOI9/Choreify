@@ -31,6 +31,7 @@ router.get("/users", usersController.getUsers, (req, res) => {
 
 // create a rout for posting new user info
 router.post("/users", usersController.postNewUser, (req, res) => {
+  console.log("sending back: ", res.locals.payload);
   res.status(200).json(res.locals.payload);
 });
 

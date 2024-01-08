@@ -11,26 +11,51 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+import { usePostNewUserMutation } from "../../redux/api/users/usersApi";
+import { addLoggedUser } from "../../redux/slices/usersSlice";
 
 const provider = new GoogleAuthProvider();
 
-export const signInWithGoogle = () => {
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      const name = result.user.displayName;
-      const email = result.user.email;
-      const profilePic = result.user.photoURL;
+export const signInWithGoogle = async () => {
+  // signInWithPopup(auth, provider)
+  //   .then((result) => {
+  // const name = result.user.displayName;
+  // const email = result.user.email;
+  // const profilePic = result.user.photoURL;
 
-      localStorage.setItem("name", name);
-      localStorage.setItem("email", email);
-      localStorage.setItem("profilePic", profilePic);
-      console.log({
-        name: localStorage.name,
-        email: localStorage.email,
-        profilePic: localStorage.profilePic,
-      });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  // localStorage.setItem("name", name);
+  // localStorage.setItem("email", email);
+  // localStorage.setItem("profilePic", profilePic);
+  //     console.log(`in signInWithGoole`, {
+  //       name: localStorage.name,
+  //       email: localStorage.email,
+  //       profilePic: localStorage.profilePic,
+  //     });
+  //     user.name = name;
+  //     console.log(`user now: `, user);
+  //     user.email = email;
+  //     console.log(`user now: `, user);
+  //     user.profilePic = profilePic;
+  //     console.log(`user now: `, user);
+  //     return user;
+  //   })8un
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+
+  let response = await signInWithPopup(auth, provider);
+  const name = response.user.displayName;
+  const email = response.user.email;
+  const profilePic = response.user.photoURL;
+
+  localStorage.setItem("name", name);
+  localStorage.setItem("email", email);
+  localStorage.setItem("profilePic", profilePic);
+
+  let user = {
+    username: response.user.displayName,
+    email: response.user.email,
+    profile_picture: response.user.photoURL,
+  };
+  return user;
 };
