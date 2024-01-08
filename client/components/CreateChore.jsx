@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 import '../styles.css';
+import { useGetAllChoresQuery } from "../redux/api/chores/choresApi.js";
 
 export default function CreateChore() {
   const [initialChore, setChore] = useState('');
   const [owner, setOwner] = useState('');
   const [date, setDate] = useState('');
+  const [data, error, isLoading] = useGetAllChoresQuery;
 
   const someHelperFunction = (e) => {
     e.preventDefault();
-    console.log('tests');
+    try {
+      
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

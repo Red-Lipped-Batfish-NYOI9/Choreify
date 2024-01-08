@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { application } from 'express';
 
 // Define a service using a base URL and expected endpoints
 export const choresApi = createApi({
@@ -8,9 +9,16 @@ export const choresApi = createApi({
     getAllChores: builder.query({
       query: () => '/chores',
     }),
-    // saveNewChore: builder.query({
-    //   query: () => `/chores`,
-    // }),
+    postData: builder.mutation({
+      query: (data) => ({
+        url: '/chores',
+        method: 'POST',
+        body: data,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }),
+    }),
   }),
 });
 
