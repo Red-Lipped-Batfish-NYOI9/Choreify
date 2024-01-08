@@ -12,6 +12,7 @@ export default function Navbar() {
         <CustomLink to="/kanban">Kanban</CustomLink>
         <CustomLink to="/groups">Groups</CustomLink>
         <CustomLink to="/profile">Profile</CustomLink>
+        <CustomLink to="/createNewGroup">Create New Group</CustomLink>
       </ul>
       <LoginInModal />
     </nav>

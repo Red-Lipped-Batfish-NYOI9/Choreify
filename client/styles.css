@@ -1,5 +1,6 @@
 body {
     background: linear-gradient(117deg, rgba(70, 129, 137, 0.10) 9.51%, rgba(7, 87, 98, 0.10) 95.18%), #FFF;
+    margin: 0;
 }
 
 #swimLanes {
@@ -45,4 +46,24 @@ input {
     display: flex;
     padding: 2px;
     /* border: 1px solid black; */
+}
+
+#newGroupPage {
+    display: flex;
+    background: linear-gradient(117deg, rgba(70, 129, 137, 0.10) 9.51%, rgba(7, 87, 98, 0.10) 95.18%), #FFF;
+    height: 100vh;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    border: 2px solid black;
+
+}
+
+#groupCreationForm {
+    margin-top: 10em;
+    padding: 2em;
+    background: #FFF;
+    width: 80%;
+    border-radius: 5vh;
+    height: fit-content;
 }
