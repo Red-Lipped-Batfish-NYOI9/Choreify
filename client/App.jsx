@@ -24,7 +24,7 @@ export default function App() {
           <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </div>
-      <MainContainer />
+      {/* <MainContainer /> */}
     </div>
   );
 }

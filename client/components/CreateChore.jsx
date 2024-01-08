@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import '../styles.css';
-import { useGetAllChoresQuery } from "../redux/api/chores/choresApi.js";
+// import { useGetAllChoresQuery } from "../redux/api/chores/choresApi.js";
 
 export default function CreateChore() {
   const [initialChore, setChore] = useState('');
   const [owner, setOwner] = useState('');
   const [date, setDate] = useState('');
-  const [data, error, isLoading] = useGetAllChoresQuery();
+  // const [data, error, isLoading] = useGetAllChoresQuery();
 
   const someHelperFunction = (e) => {
     e.preventDefault();
@@ -22,7 +22,6 @@ export default function CreateChore() {
       <h2>Create Chore</h2>
       <form onSubmit={someHelperFunction}>
         <label>
-          {' '}
           Chore Title:
           <input
             type="text"
@@ -32,7 +31,6 @@ export default function CreateChore() {
           />
         </label>
         <label>
-          {' '}
           Owner:
           <input
             type="text"
@@ -42,7 +40,6 @@ export default function CreateChore() {
           />
         </label>
         <label>
-          {' '}
           Due Date:
           <input
             type="text"
