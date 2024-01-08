@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import '../styles.css';
-import { usePostNewGroupMutation } from '../redux/api/groups/groupsAPI';
+// import { usePostNewGroupMutation } from '../redux/api/groups/groupsApi';
+import { useNavigate } from 'react-router-dom';
 
 export default function groupCreationForm() {
   const [groupName, setGroupName] = useState('');
   const [groupMembers, setGroupMembers] = useState('');
+  const navigate = useNavigate();
 
   const newGroupHandler = (e) => {
     e.preventDefault();
-    usePostNewGroupMutation({ groupName, groupMembers });
+    fetch('/api/createNewGroup', {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({ groupName, groupMembers }),
+    })
+      .then(navigate('/'));
   };
 
   return (

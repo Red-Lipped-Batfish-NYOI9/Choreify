@@ -36,7 +36,7 @@ router.post("/users", usersController.postNewUser, (req, res) => {
 
 // create a route for new group creations
 router.post('/createNewGroup', newGroupController.createNewGroup, (req, res) => {
-  res.status(200).redirect('/groups');
+  res.status(200).json(res.locals.newGroup);
 });
 
 module.exports = router;

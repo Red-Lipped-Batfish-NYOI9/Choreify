@@ -14,4 +14,8 @@ queries.getAllUsers = `SELECT * FROM users;`;
 
 queries.getAllGroups = "SELECT * FROM groups;";
 
+queries.createNewGroup = `INSERT INTO groups`
+  + `(group_name)`
+  + `VALUES($1)`;
+
 module.exports = queries;
