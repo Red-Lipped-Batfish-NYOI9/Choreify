@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import '../styles.css';
 
 export default function CreateChore() {
@@ -13,12 +12,13 @@ export default function CreateChore() {
   };
 
   return (
-    <div id="createChoreContainer">
+    <div id="lane" className="createChore">
       <h2>Create Chore</h2>
       <form onSubmit={someHelperFunction}>
         <label> Chore Title:
           <input
             type="text"
+            placeholder="Dishes, Laundry, etc..."
             value={initialChore}
             onChange={(e) => setChore(e.target.value)}
           />
@@ -26,6 +26,7 @@ export default function CreateChore() {
         <label> Owner:
           <input
             type="text"
+            placeholder="Your Name"
             value={owner}
             onChange={(e) => setOwner(e.target.value)}
           />
@@ -33,6 +34,7 @@ export default function CreateChore() {
         <label> Due Date: 
           <input
             type="text"
+            placeholder="MM/DD/YYYY"
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
