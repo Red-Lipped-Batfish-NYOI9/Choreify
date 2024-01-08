@@ -4,7 +4,7 @@ const apiRouter = require("./routes/api");
 
 const app = express();
 
-// app.use(express.json());
+app.use(express.json());
 
 //Logs all incoming request
 app.use("*", (req, res, next) => {

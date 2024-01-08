@@ -1,6 +1,33 @@
 .navbar {
-  border: black solid;
-  background-color: grey;
+  /* border: black solid; */
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  min-height: 6rem;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.applicationAndLogo {
+  display: flex;
+  flex-direction: row;
+  min-width: 6rem;
+  min-height: 3rem;
+  background-color: green;
+}
+
+.logoContainer {
+  display: flex;
+  max-width: 4rem;
+  max-height: 8rem;
+}
+.logo {
+  max-width: 150px;
+  object-fit: contain;
+  aspect-ratio: 1/1;
+}
+
+.links {
+  width: 5rem;
   display: flex;
 }
 
@@ -10,6 +37,7 @@
 }
 .pages {
   display: flex;
+  font-size: 25px;
 }
 .loginModal {
   background-color: #ffffff;

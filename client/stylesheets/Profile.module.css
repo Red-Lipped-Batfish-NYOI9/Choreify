@@ -1,0 +1,29 @@
+.profileModal {
+  display: flex;
+  align-self: center;
+  /* align-items: flex-end; */
+
+  align-content: center;
+  background-color: white;
+  width: 3rem;
+  height: 1rem;
+  border-radius: 0.3rem;
+}
+
+.profilePictureDiv {
+  max-height: 1rem;
+}
+.profilePic {
+  max-height: 25px;
+}
+.nameAndSettings {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.name {
+  font-style: Helvertica Neue, sans-serif;
+  font-size: 14px;
+  color: teal;
+}
