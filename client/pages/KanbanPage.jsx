@@ -1,5 +1,7 @@
 import React from "react";
 import MainContainer from "../containers/MainContainer.jsx";
+
+import { fetchChores } from "../redux/slices/choresSlice.js";
 export default function KanbanPage() {
   return (
     <div>

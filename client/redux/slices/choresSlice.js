@@ -16,12 +16,15 @@ export const choresSlice = createSlice({
   reducers: {
     //Redux uses immer library which detects changes to a "draft state" and produces a brand new immutable state based off those changes
     add: (state, action) => {
+      console.log("REDUCER: invoker ADD");
       state.chores.data.action.payload.id = action.payload; //Expects all chore data structure to be passed
     },
     modify: (state, action) => {
+      console.log("REDUCER: invoker Modify");
       state.chores.data.action.payload.id = action.payload; //Expects all chore data structure to be passed
     },
     deleteOne: (state, action) => {
+      console.log("REDUCER: invoker DeleteOne");
       delete state.chores.data.action.payload.id; //Expects chore id to be passed
     },
   },
