@@ -1,5 +1,7 @@
 .newGroupContainer {
     display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(5, auto);
     border: 2px solid black;
     background-color: red;
 }
