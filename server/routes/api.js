@@ -1,7 +1,8 @@
 // require in Express and controllers
 const express = require('express');
 const choreController = require('../controllers/choreController');
-const groupController = require('../controllers/groupController');
+const groupController = require("../controllers/groupController");
+const usersController = require("../controllers/usersController");
 const newGroupController = require('../controllers/newGroupController');
 
 // create router
@@ -19,8 +20,18 @@ router.post('/chores', choreController.createChore, (req, res) => {
 });
 
 // create a rout for getting all group info
-router.get('/groups', groupController.getGroups, (req, res) => {
+router.get("/groups", groupController.getGroups, (req, res) => {
   res.status(200).json(res.locals.groups);
+});
+
+// create a rout for getting all users info
+router.get("/users", usersController.getUsers, (req, res) => {
+  res.status(200).json(res.locals.payload);
+});
+
+// create a rout for posting new user info
+router.post("/users", usersController.postNewUser, (req, res) => {
+  res.status(200).json(res.locals.payload);
 });
 
 // create a route for new group creations
