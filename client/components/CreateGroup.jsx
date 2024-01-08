@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles.css';
+import { usePostNewGroupMutation } from '../redux/api/groups/groupsAPI';
 
 export default function groupCreationForm() {
   const [groupName, setGroupName] = useState('');
@@ -7,6 +8,7 @@ export default function groupCreationForm() {
 
   const newGroupHandler = (e) => {
     e.preventDefault();
+    usePostNewGroupMutation({ groupName, groupMembers });
   };
 
   return (

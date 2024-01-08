@@ -8,7 +8,14 @@ export const groupsApi = createApi({
     getAllGroups: builder.query({
       query: () => '/groups',
     }),
+    postNewGroup: builder.mutation({
+      query: (data) => ({
+        url: '/createNewGroup',
+        method: 'POST',
+        data,
+      }),
+    }),
   }),
 });
 
-export const { useGetAllGroupsQuery } = groupsApi;
+export const { useGetAllGroupsQuery, usePostNewGroupMutation } = groupsApi;
