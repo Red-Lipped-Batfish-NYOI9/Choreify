@@ -20,7 +20,8 @@ export default function Navbar() {
           <CustomLink to="/home">Home</CustomLink>
           <CustomLink to="/kanban">Kanban</CustomLink>
           <CustomLink to="/groups">Groups</CustomLink>
-        </ul>
+          <CustomLink to="/createNewGroup">Create New Group</CustomLink>
+      </ul>
       </div>
       <Profile className={styles.profileComponent} />
     </nav>

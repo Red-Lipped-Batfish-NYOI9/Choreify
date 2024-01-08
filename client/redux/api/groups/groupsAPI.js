@@ -6,9 +6,16 @@ export const groupsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8080/api" }),
   endpoints: (builder) => ({
     getAllGroups: builder.query({
-      query: () => "/groups",
+      query: () => '/groups',
+    }),
+    postNewGroup: builder.mutation({
+      query: (data) => ({
+        url: '/createNewGroup',
+        method: 'POST',
+        data,
+      }),
     }),
   }),
 });
 
-export const { useGetAllGroupsQuery } = groupsApi;
+export const { useGetAllGroupsQuery, usePostNewGroupMutation } = groupsApi;

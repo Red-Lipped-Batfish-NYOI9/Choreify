@@ -13,4 +13,8 @@ queries.createChore = (
 
 queries.getAllGroups = ('SELECT * FROM groups FULL OUTER JOIN users_groups ON groups.group_id=users_groups.group_id LEFT JOIN users ON users.user_id=users_groups.user_id;');
 
+queries.createNewGroup = `INSERT INTO groups`
+  + `(group_name)`
+  + `VALUES($1)`;
+
 module.exports = queries;
