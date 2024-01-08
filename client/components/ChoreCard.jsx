@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 import { useGetAllChoresQuery } from "../redux/api/chores/choresApi.js";
+import '../styles.css';
 
 export default function ChoreCard() {
   const { data, error, isLoading } = useGetAllChoresQuery();
