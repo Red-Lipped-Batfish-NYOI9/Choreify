@@ -8,25 +8,13 @@ export default function NewGroupContainer() {
   // in here, we are going to get the data and then render that into the div
   const { data, error, isLoading } = useGetAllGroupsQuery();
 
-  console.log('groupData', data);
-
   const groupsArr = [];
-  /*
+
   if (!isLoading) {
-    const groupPlaceholder = {};
-
     for (let i = 0; i < data.length; i++) {
-      if(!groupPlaceholder.hasOwnProperty(data[i].group_name)){
-        groupPlaceholder[data[i].group_name] = { }
-      }
-    }
-
-
-    for (let i = 0; i < data.length; i++) {
-      groupsArr.push(<Group key={data[i].group_id} group_name={data[i].group_name} />);
+      groupsArr.push(<Group key={data[i].group_id} group_name={data[i].group_name} members={data[i].members}/>);
     }
   }
-  */
 
   return (
     <div>

@@ -3,19 +3,24 @@ import React from 'react';
 import styles from '../stylesheets/Groups.module.css';
 
 export default function Group(props) {
+  const members = [];
+  const roles = [];
+
+  for (let i = 0; i < props.members.length; i++) {
+    members.push(<div className={styles.box} key={props.members[i]}>{props.members[i]}</div>);
+    roles.push(<div className={styles.box} key={`${props.members[i]}-role`}>User</div>);
+  }
   return (
     <div className={styles.groupInfoCard}>
-      <h3>{/*props.group_name*/'name'}</h3>
+      <h3>{props.group_name}</h3>
       <div className={styles.columnHolder}>
         <div className={styles.column}>
           Member Name
-          <div className={styles.box}>Member 1</div>
-          <div className={styles.box}>Member 2</div>
+          {members}
         </div>
         <div className={styles.column}>
           Member role
-          <div className={styles.box}>Admin</div>
-          <div className={styles.box}>User</div>
+          {roles}
         </div>
       </div>
     </div>
