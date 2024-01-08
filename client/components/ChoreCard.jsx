@@ -1,24 +1,43 @@
-import React, { useState } from 'react';
+/* eslint-disable import/extensions */
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useGetAllChoresQuery } from '../redux/api/chores/choresApi.js';
+import '../styles.css';
 
 export default function ChoreCard() {
-  const [name, setName] = useState('');
-  const [chore, setChore] = useState('');
+  const { data } = useGetAllChoresQuery();
 
   return (
     <div id="lane">
       <h2>Chores Not Started</h2>
-      <p>
-        Chore:
-        {' '}
-        {chore}
-      </p>
-      <p>
-        Owner:
-        {' '}
-        {name}
-      </p>
-      <p>Created Date: "some date from the database"</p>
-      <p>Due Date: </p>
+      {data ? (
+        <p>
+          Chore:
+          {' '}
+          {data[0].title}
+        </p>
+      ) : null}
+      {data ? (
+        <p>
+          Description:
+          {' '}
+          {data[0].description}
+        </p>
+      ) : null}
+      {data ? (
+        <p>
+          Created Date:
+          {' '}
+          {data[0].created_date}
+        </p>
+      ) : null}
+      {data ? (
+        <p>
+          Due Date:
+          {' '}
+          {data[0].due_date}
+        </p>
+      ) : null}
     </div>
   );
 }

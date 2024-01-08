@@ -18,7 +18,7 @@ export default function MainContainer() {
       <div id="swimLanes">
         <CreateChore />
         <ChoreCard />
-        {/* {isLoading ? "Loading..." : JSON.stringify(data)} */}
+        {/* {isLoading ? 'Loading...' : JSON.stringify(data)} */}
       </div>
     </div>
   );
