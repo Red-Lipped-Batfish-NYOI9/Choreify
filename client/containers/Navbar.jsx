@@ -1,19 +1,22 @@
 import React from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import styles from "../stylesheets/Navbar.module.css";
+import Profile from "../components/Profile.jsx";
 
 export default function Navbar() {
   return (
     <nav className={styles.navbar}>
-      {/* <Link to="/">Price Hub</Link> */}
-      {/* <Link to="/1">Teste</Link> */}
-      <ul className={styles.pages}>
-        <CustomLink to="/">Login</CustomLink>
-        <CustomLink to="/kanban">Kanban</CustomLink>
-        <CustomLink to="/groups">Groups</CustomLink>
-        <CustomLink to="/profile">Profile</CustomLink>
-      </ul>
-      <LoginInModal />
+      <div className={styles.applicationAndLogo}>
+        <ApplicationAndLogo />
+      </div>
+      <div className={styles.links}>
+        <ul className={styles.pages}>
+          <CustomLink to="/home">Home</CustomLink>
+          <CustomLink to="/kanban">Kanban</CustomLink>
+          <CustomLink to="/groups">Groups</CustomLink>
+        </ul>
+      </div>
+      <Profile />
     </nav>
   );
 }
@@ -31,6 +34,6 @@ function CustomLink({ to, children, ...props }) {
   );
 }
 
-function LoginInModal() {
-  return <div className={styles.loginModal}>Login</div>;
+function ApplicationAndLogo() {
+  return <img className={styles.logo} src="../public/assets/logo.jpg" />;
 }
