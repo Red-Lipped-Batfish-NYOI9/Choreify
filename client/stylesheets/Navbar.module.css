@@ -37,6 +37,7 @@
 }
 .pages {
   display: flex;
+  font-size: 25px;
 }
 .loginModal {
   background-color: #ffffff;
