@@ -17,12 +17,11 @@ export default function NewGroupContainer() {
   }
 
   return (
-    <div>
+    <div class={styles.newGroupParent}>
       <h1>All Groups:</h1>
       <div className={styles.newGroupContainer}>
         {isLoading ? 'Loading...' : groupsArr}
       </div>
-      <div>This is a button that when clicked will redirect to create a new group</div>
     </div>
   );
 }

@@ -12,14 +12,14 @@ export default function Group(props) {
   }
   return (
     <div className={styles.groupInfoCard}>
-      <h3>{props.group_name}</h3>
+      <h2>{props.group_name}</h2>
       <div className={styles.columnHolder}>
         <div className={styles.column}>
-          Member Name
+        <div className={styles.box_header}>Member Name</div>
           {members}
         </div>
         <div className={styles.column}>
-          Member role
+          <div className={styles.box_header}>Role</div>
           {roles}
         </div>
       </div>
