@@ -25,7 +25,7 @@ usersController.postNewUser = (req, res, next) => {
     values: [username, email, profile_picture],
   };
   db.query(queryString).then((data) => {
-    console.log("data from query ", data);
+    // console.log("data from query ", data);
     if (data.rowCount >= 1) {
       res.locals.payload = data.rows[0];
       next();

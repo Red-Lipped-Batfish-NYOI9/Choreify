@@ -2,11 +2,17 @@ import React from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import styles from "../stylesheets/Navbar.module.css";
 import Profile from "../components/Profile.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  function navigateHome() {
+    navigate("/home");
+  }
+
   return (
     <nav className={styles.navbar}>
-      <div className={styles.applicationAndLogo}>
+      <div className={styles.applicationAndLogo} onClick={navigateHome}>
         <ApplicationAndLogo />
       </div>
       <div className={styles.links}>
@@ -16,7 +22,7 @@ export default function Navbar() {
           <CustomLink to="/groups">Groups</CustomLink>
         </ul>
       </div>
-      <Profile />
+      <Profile className={styles.profileComponent} />
     </nav>
   );
 }
