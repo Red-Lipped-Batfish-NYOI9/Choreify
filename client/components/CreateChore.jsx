@@ -6,7 +6,7 @@ export default function CreateChore() {
   const [initialChore, setChore] = useState('');
   const [owner, setOwner] = useState('');
   const [date, setDate] = useState('');
-  const [data, error, isLoading] = useGetAllChoresQuery;
+  const [data, error, isLoading] = useGetAllChoresQuery();
 
   const someHelperFunction = (e) => {
     e.preventDefault();
