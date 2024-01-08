@@ -12,6 +12,7 @@
 
 .profilePictureDiv {
   max-height: 1rem;
+  height: 100%;
 }
 .profilePic {
   max-height: 25px;
@@ -26,4 +27,8 @@
   font-style: Helvertica Neue, sans-serif;
   font-size: 14px;
   color: teal;
+}
+
+.settings {
+  font-size: 12px;
 }

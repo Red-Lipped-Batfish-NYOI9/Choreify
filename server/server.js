@@ -13,6 +13,7 @@ app.use("*", (req, res, next) => {
   URL: ${req.method} ${req.url}\n
   Params: ${JSON.stringify(req.params)}\n
   Body: ${JSON.stringify(req.body)}
+  Req: ${req}
   #######
   `);
   next();

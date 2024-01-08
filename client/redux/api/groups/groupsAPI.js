@@ -11,4 +11,4 @@ export const groupsApi = createApi({
   }),
 });
 
-export const { useGetAllGroupsQuery, usePostNewGroupQuery } = groupsApi;
+export const { useGetAllGroupsQuery } = groupsApi;
