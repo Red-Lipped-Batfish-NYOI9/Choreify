@@ -11,6 +11,6 @@ queries.createChore = (
     + `VALUES ($1, $2, $3, $4, $5, $6, $7);`
 );
 
-queries.getAllGroups = ('SELECT * FROM groups FULL OUTER JOIN users_groups ON groups.group_id=users_groups.group_id LEFT JOIN users ON users.user_id=users_groups.user_id;');
+queries.getAllGroups = ('SELECT * FROM groups;');
 
 module.exports = queries;
