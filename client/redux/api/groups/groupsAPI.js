@@ -8,9 +8,6 @@ export const groupsApi = createApi({
     getAllGroups: builder.query({
       query: () => "/groups",
     }),
-    postNewGroup: builder.query({
-      query: () => "/groups",
-    }),
   }),
 });
 
