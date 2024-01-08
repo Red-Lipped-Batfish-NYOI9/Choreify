@@ -6,6 +6,8 @@ import KanbanPage from "./pages/KanbanPage.jsx";
 import GroupsPage from "./pages/GroupsPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import { Routes, Route } from "react-router-dom";
+/* eslint-disable import/extensions */
+import MainContainer from "./containers/MainContainer.jsx";
 
 export default function App() {
   return (
