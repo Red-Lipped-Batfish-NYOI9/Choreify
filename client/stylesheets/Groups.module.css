@@ -1,4 +1,5 @@
 .newGroupContainer {
+    display: grid;
     border: 2px solid black;
     background-color: red;
 }
@@ -7,4 +8,21 @@
     border: 2px solid black;
     background-color: blue;
     margin: 10px;
+    width: fit-content;
+}
+
+.columnHolder {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    margin: 2px;
+}
+
+.box {
+    margin: 1px;
+    border: 2px solid black;
 }
