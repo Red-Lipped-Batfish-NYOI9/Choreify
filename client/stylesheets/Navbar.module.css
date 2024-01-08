@@ -1,0 +1,17 @@
+.navbar {
+  border: black solid;
+  background-color: grey;
+  display: flex;
+}
+
+.navbar li {
+  list-style: none;
+  margin-left: 1rem;
+}
+.pages {
+  display: flex;
+}
+.loginModal {
+  background-color: #ffffff;
+  align-content: end;
+}
