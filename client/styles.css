@@ -68,3 +68,9 @@ input {
     border-radius: 5vh;
     height: fit-content;
 }
+
+
+.progress-container {
+    background-color: aliceblue;
+    height: 70%;
+}
