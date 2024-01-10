@@ -16,7 +16,7 @@ export default function App() {
   return (
     <div className={styles.appContainer}>
       <Navbar />
-      <div>
+      <div className={styles.routesContainer}>
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/home" element={<HomePage />} />

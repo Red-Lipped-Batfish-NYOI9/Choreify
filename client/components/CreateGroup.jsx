@@ -19,7 +19,7 @@ export default function groupCreationForm() {
   };
 
   return (
-    <div>
+    
       <form onSubmit={newGroupHandler}>
         <label htmlFor="groupName">
           New Group Name:
@@ -39,8 +39,8 @@ export default function groupCreationForm() {
             onChange={(e) => setGroupMembers(e.target.value)}
           />
         </label>
-        <button type="submit">Create Group</button>
+        <button className='create-group-button' type="submit">Create Group</button>
       </form>
-    </div>
+    
   );
 }

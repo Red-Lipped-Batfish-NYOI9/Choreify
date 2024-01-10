@@ -4,7 +4,7 @@ import NewGroupContainer from '../containers/NewGroupContainer.jsx';
 
 export default function GroupsPage() {
   return (
-    <div>
+    <div className='groupspage'>
       <NewGroupContainer />
     </div>
   );
