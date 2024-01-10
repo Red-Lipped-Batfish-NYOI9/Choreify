@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useGetAllChoresQuery } from '../redux/api/chores/choresApi.js';
 import '../styles.css';
 
-export default function ChoreCard() {
+export default function ChoreCard(props) {
   const { data } = useGetAllChoresQuery();
 
   return (
@@ -14,28 +14,28 @@ export default function ChoreCard() {
         <p>
           Chore:
           {' '}
-          {data[0].title}
+          {props.title}
         </p>
       ) : null}
       {data ? (
         <p>
           Description:
           {' '}
-          {data[0].description}
+          {props.description}
         </p>
       ) : null}
       {data ? (
         <p>
           Created Date:
           {' '}
-          {data[0].created_date}
+          {props.created_date}
         </p>
       ) : null}
       {data ? (
         <p>
           Due Date:
           {' '}
-          {data[0].due_date}
+          {props.due_date}
         </p>
       ) : null}
     </div>
