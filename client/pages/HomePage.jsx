@@ -6,7 +6,7 @@ export default function HomePage() {
       <h1>Welcome to Choreify!</h1>
       <br />
 
-      <p>Making chores manageable and rewarding.</p>
+      {/* <p>Making chores manageable and rewarding.</p> */}
       <br />
       <br />
       <br />

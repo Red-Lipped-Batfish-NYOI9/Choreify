@@ -49,12 +49,13 @@ export default function CreateChore() {
   return (
     <div id="lane" className="createChore">
       <h2>Create Chore</h2>
-      <form onSubmit={sendCreateChore}>
+      <form onSubmit={someHelperFunction}>
         <label>
           Chore Title:
           <input
             type="text"
             placeholder="Dishes, Laundry, etc..."
+            className='create-chore-input'
             id='chore-title'
             // value={initialChore}
             
@@ -64,7 +65,8 @@ export default function CreateChore() {
           Chore Description:
           <input
             type="text"
-            placeholder="Give 2 scoops to the yellow lab and 1 scoop to the chihuahua"
+            placeholder="Use cleaning solution, etc..."
+            className='create-chore-input'
             id='chore-description'
             // value={initialChore}
             
@@ -74,7 +76,8 @@ export default function CreateChore() {
           Owner:
           <input
             type="text"
-            placeholder="Your Name"
+            placeholder="Name"
+            className='create-chore-input'
             id="owner-title"
             // value={owner}
             // onChange={(e) => setOwner(e.target.value)}
@@ -85,12 +88,13 @@ export default function CreateChore() {
           <input
             type="text"
             placeholder="MM/DD/YYYY"
+            className='create-chore-input'
             id='due-date'
             // value={date}
             // onChange={(e) => setDate(e.target.value)}
           />
         </label>
-        <button type="submit">Create Chore</button>
+        <button id='create-chore-button' type="submit">Create Chore</button>
       </form>
     </div>
   );
