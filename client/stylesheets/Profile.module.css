@@ -1,4 +1,7 @@
 .profileModal {
+  position: absolute;
+  right: 50px;
+  top: 18px;
   display: flex;
   align-self: center;
   /* align-items: flex-end; */

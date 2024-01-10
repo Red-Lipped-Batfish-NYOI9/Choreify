@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { addLoggedUser } from "../redux/slices/usersSlice";
 import { store } from "../redux/store";
 import { usePostNewUserMutation } from "../redux/api/users/usersApi";
+import styles from "../stylesheets/LoginPage.module.css";
+
 
 export default function GoogleOAuthButton() {
   const dispatch = useDispatch();
@@ -33,7 +35,7 @@ export default function GoogleOAuthButton() {
 
   return (
     <div>
-      <button onClick={handleLogin}>Sign in with Google</button>;
+      <button className={styles.loginButton} onClick={handleLogin}>Sign in with Google</button>
     </div>
   );
 }

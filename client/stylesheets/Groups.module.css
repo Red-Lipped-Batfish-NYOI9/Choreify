@@ -6,8 +6,9 @@
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(5, auto);
-    border: 2px solid black;
-    background-color: rgb(164, 208, 212);
+    border: 0.5px solid rgb(130, 130, 130);
+    background-color: rgb(248, 248, 248);
+    /* background-color: rgb(164, 208, 212); */
     height: 100%;
 }
 
@@ -17,13 +18,13 @@ h2 {
 
 .groupInfoCard {
     align-items: center;
-    border: 2px solid black;
+    border: none;
     border-radius: 5px;
-    background-color: rgb(203, 203, 148);
-    box-shadow: 5px 3px 3px rgb(255, 150, 150);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 3px 3px rgb(233, 233, 233);
     margin: 10px;
     padding: 2px;
-    width: fit-content;
+    width: 16rem;
 }
 
 .columnHolder {

@@ -14,7 +14,7 @@ export default function MainContainer() {
   const { data, error, isLoading } = useGetAllChoresQuery();
   return (
     <div>
-      <h1>Choreify!</h1>
+      {/* <h1>Choreify!</h1> */}
       <div id="swimLanes">
         <CreateChore />
         <ProgressContainer progress="To Do" />
