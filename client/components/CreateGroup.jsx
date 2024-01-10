@@ -1,21 +1,33 @@
+/* eslint-disable react/jsx-tag-spacing */
+/* eslint-disable no-plusplus */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable no-unused-vars */
+/* eslint-disable max-len */
+/* eslint-disable import/extensions */
 import React, { useState } from 'react';
 import '../styles.css';
-// import { usePostNewGroupMutation } from '../redux/api/groups/groupsApi';
 import { useNavigate } from 'react-router-dom';
+import { usePostNewGroupMutation } from '../redux/api/groups/groupsApi';
 
 export default function groupCreationForm() {
   const [groupName, setGroupName] = useState('');
   const [groupMembers, setGroupMembers] = useState('');
   const navigate = useNavigate();
 
-  const newGroupHandler = (e) => {
+  const newGroupHandler = async (e) => {
     e.preventDefault();
-    fetch('/api/createNewGroup', {
+    console.log(' groupName ', groupName);
+    console.log(' groupMembers ', groupMembers);
+
+    const res = await fetch('/api/createNewGroup', {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify({ groupName, groupMembers }),
-    })
-      .then(navigate('/'));
+    });
+
+    const response = await res.json();
+    console.log("RESPONSE HERE ", response);
   };
 
   return (

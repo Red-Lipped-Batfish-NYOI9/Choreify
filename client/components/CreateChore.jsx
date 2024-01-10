@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles.css';
 import { useDispatch } from 'react-redux';
 import { useGetAllChoresQuery } from "../redux/api/chores/choresApi.js";
+import { setChoresList } from '../redux/slices/choresSlice.js';
 
 
 export default function CreateChore() {
@@ -10,10 +11,11 @@ export default function CreateChore() {
   // const [date, setDate] = useState('');
   // const [data, error, isLoading] = useGetAllChoresQuery();
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  const someHelperFunction = (e) => {
+  const someHelperFunction = async (e) => {
     e.preventDefault();
+
     try {
       console.log('test', document.getElementById('chore-title').value, document.getElementById('owner-title').value, document.getElementById('due-date').value, document.getElementById('chore-description').value);
       // send a POST request to the server with the form data
@@ -27,7 +29,8 @@ export default function CreateChore() {
       document.getElementById('chore-description').value = '';
       document.getElementById('owner-title').value = '';
       document.getElementById('due-date').value = '';
-      fetch('/api/chores', {
+
+      const response = await fetch('/api/chores', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/JSON',
@@ -37,11 +40,20 @@ export default function CreateChore() {
           // new Date().toLocaleString('en-US')
           JSON.stringify([choreTitle, choreDescription, 1, 'to-do', dueDate, 1, dueDate]),
       })
-      // .then((data) => JSON.parse(data))
-      .then((data) => console.log(data));
+    
+      console.log(response);
+      
+       const res = await response.json();
+       console.log("RECEIVED DATA AFTER CREATING CHORE ", res);
+       dispatch(setChoresList(res));
+
     } catch (error) {
       console.log(error);
     }
+    
+    
+
+
   };
 
   // const sendCreateChore = (e) => {

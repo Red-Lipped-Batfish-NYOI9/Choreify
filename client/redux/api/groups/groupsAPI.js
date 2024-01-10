@@ -10,10 +10,17 @@ export const groupsApi = createApi({
     }),
     postNewGroup: builder.mutation({
       query: (data) => ({
+        
         url: '/createNewGroup',
         method: 'POST',
-        data,
+        body: data,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        
       }),
+      invalidatesTags: ["Post"],
+      transformResponse: (response) => response.data,
     }),
   }),
 });
