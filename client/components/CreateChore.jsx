@@ -10,18 +10,35 @@ export default function CreateChore() {
   // const [date, setDate] = useState('');
   // const [data, error, isLoading] = useGetAllChoresQuery();
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const someHelperFunction = (e) => {
     e.preventDefault();
     try {
       console.log('test', document.getElementById('chore-title').value, document.getElementById('owner-title').value, document.getElementById('due-date').value, document.getElementById('chore-description').value);
       // send a POST request to the server with the form data
+      const choreTitle = document.getElementById('chore-title').value;
+      const ownerTitle = document.getElementById('owner-title').value;
+      const dueDate = document.getElementById('due-date').value;
+      const choreDescription = document.getElementById('chore-description').value;
+      
+      console.log('choreTitle:', choreTitle, 'ownerTitle:', ownerTitle, 'dueDate:', dueDate, 'choreDescription:', choreDescription);
       document.getElementById('chore-title').value = '';
       document.getElementById('chore-description').value = '';
       document.getElementById('owner-title').value = '';
       document.getElementById('due-date').value = '';
-    
+      fetch('/api/chores', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/JSON',
+        },
+        body:
+          // (title, description, group_id, chore_status, due_date, assigner_id, created_date)
+          // new Date().toLocaleString('en-US')
+          JSON.stringify([choreTitle, choreDescription, 1, 'to-do', dueDate, 1, dueDate]),
+      })
+      // .then((data) => JSON.parse(data))
+      .then((data) => console.log(data));
     } catch (error) {
       console.log(error);
     }
