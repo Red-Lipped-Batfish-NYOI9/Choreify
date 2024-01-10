@@ -26,7 +26,7 @@ choreController.createChore = (req, res, next) => {
   //   new Date().toLocaleString('en-US'),
   // ];
   const newChoreData = req.body;
-  console.log('reached createCHore COntroller');
+  console.log('reached createChore Controller ');
 
   // pass the params into the function that will insert them in the query
   // then insert them into the database using db.query
