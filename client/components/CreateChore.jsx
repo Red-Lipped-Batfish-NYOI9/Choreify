@@ -17,11 +17,27 @@ export default function CreateChore() {
     try {
       console.log('test', document.getElementById('chore-title').value, document.getElementById('owner-title').value, document.getElementById('due-date').value, document.getElementById('chore-description').value);
       // send a POST request to the server with the form data
+      const choreTitle = document.getElementById('chore-title');
+      const ownerTitle = document.getElementById('owner-title');
+      const dueDate = document.getElementById('due-date');
+      const choreDescription = document.getElementById('chore-description');
+      
+
       document.getElementById('chore-title').value = '';
       document.getElementById('chore-description').value = '';
       document.getElementById('owner-title').value = '';
       document.getElementById('due-date').value = '';
-    
+      fetch('localhost:8080/api/chores', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/JSON',
+        },
+        body: JSON.stringify(
+          // (title, description, group_id, chore_status, due_date, assigner_id, created_date)
+          [choreTitle, choreDescription, 1, 'assigned', dueDate, 1, new Date().toLocaleString('en-US')],
+        ),
+      })
+        .then((data) => console.log(data));
     } catch (error) {
       console.log(error);
     }
