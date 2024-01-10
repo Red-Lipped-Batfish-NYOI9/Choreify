@@ -19,7 +19,7 @@ export default function Navbar() {
       <div className={styles.links}>
         <ul className={styles.pages}>
           <CustomLink to="/home">Home</CustomLink>
-          <CustomLink to="/kanban">Kanban</CustomLink>
+          <CustomLink to="/kanban">Progress Board</CustomLink>
           <CustomLink to="/groups">Groups</CustomLink>
           <CustomLink to="/createNewGroup">Create New Group</CustomLink>
         </ul>

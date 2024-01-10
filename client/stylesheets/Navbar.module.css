@@ -7,6 +7,7 @@
   justify-content: flex-end;
   flex-wrap: nowrap;
   border-bottom: 0.5px solid rgb(220, 220, 220);
+  box-shadow: 2px 2px 4px rgb(237, 237, 237);
 }
 
 .applicationAndLogo {

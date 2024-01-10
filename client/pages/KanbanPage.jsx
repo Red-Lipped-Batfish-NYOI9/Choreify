@@ -5,7 +5,7 @@ import { fetchChores } from "../redux/slices/choresSlice.js";
 export default function KanbanPage() {
   return (
     <div>
-      <h1>Kanban Page</h1>
+      <h1>Progress Board</h1>
       <MainContainer />
     </div>
   );

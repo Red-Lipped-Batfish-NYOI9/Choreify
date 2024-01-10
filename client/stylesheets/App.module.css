@@ -11,4 +11,13 @@ html {
   border: 0px;
   margin: 0px;
   padding: 0px;
+  height: 100%;
+}
+
+
+.routesContainer {
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
 }
