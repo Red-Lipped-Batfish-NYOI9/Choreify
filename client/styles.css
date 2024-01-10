@@ -74,7 +74,8 @@ input {
 
 #newGroupPage {
     display: flex;
-    background: linear-gradient(117deg, rgba(70, 129, 137, 0.10) 9.51%, rgba(7, 87, 98, 0.10) 95.18%), #FFF;
+    background-color: aliceblue;
+    /* background: linear-gradient(117deg, rgba(70, 129, 137, 0.10) 9.51%, rgba(7, 87, 98, 0.10) 95.18%), #FFF; */
     height: 100vh;
     text-align: center;
     justify-content: center;
@@ -84,12 +85,49 @@ input {
 }
 
 #groupCreationForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 10em;
     padding: 2em;
     background: #FFF;
     width: 80%;
-    border-radius: 5vh;
+    border-radius: 10px;
     height: fit-content;
+    box-shadow: 2px 2px 4px rgb(244, 244, 244);
+}
+
+#groupCreationForm form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  
+}
+#groupCreationForm label{
+    width: 70%;
+    margin: 10px auto;
+}
+
+#groupCreationForm input {
+    height: 24px;
+    text-indent: 10px;
+    border: 0.5px solid rgb(184, 184, 184);
+    border-radius: 2px;
+    /* margin: 10px auto; */
+    margin-top: 10px;
+}
+
+.create-group-button {
+    width: 30%;
+    height: 30px;
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    align-self: center;
+    margin: 20px auto;
 }
 
 /* CHORE PAGE */
@@ -138,8 +176,49 @@ input {
     height: 62%;
     overflow: auto;
     width: 22.5%;
+    box-shadow: 2px 2px 4px rgb(244, 244, 244);
+}
+
+.progress-container h2 {
+    color: rgb(50, 57, 102);
 }
 
 .chorecard-container {
     width: 95%;
+}
+
+
+/* HOMEPAGE */
+
+.homepage {
+    height: 100%;
+}
+
+.homepage h1 {
+    margin: 50px auto;
+}
+
+.homepage p {
+    margin: auto 20%;
+    text-indent: 40px;
+}
+
+/* GROUPS PAGE */
+.groupspage {
+    height: 100%;
+}
+
+
+/* CREATE GROUP PAGE */
+#newGroupPage {
+    border: none;
+    background: none;
+    background-color:aliceblue;
+
+}
+
+/* PROFILE PAGE */
+.profile-page {
+    width: 90%;
+    margin: 0 50px;
 }

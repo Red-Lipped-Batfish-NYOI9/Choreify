@@ -15,7 +15,7 @@ export default function Group(props) {
       <h2>{props.group_name}</h2>
       <div className={styles.columnHolder}>
         <div className={styles.column}>
-        <div className={styles.box_header}>Member Name</div>
+          <div className={styles.box_header}>Member Name</div>
           {members}
         </div>
         <div className={styles.column}>
