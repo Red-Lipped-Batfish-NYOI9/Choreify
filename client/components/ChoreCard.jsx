@@ -22,6 +22,23 @@ export default function ChoreCard(props) {
       nextChore = 'done';
     }
     let currChoreId = props.chore_id;
+
+
+    if (props.chore_status === 'done'){
+      //deleting
+    console.log("props.key ", currChoreId);
+    fetch("api/chores", {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify([currChoreId])
+
+    })
+    .then(data => data.json())
+    .then(data => dispatch(setChoresList({choreList: data})))
+    }else{
+
     console.log("props.key ", currChoreId);
     fetch("api/chores", {
       method: 'PATCH',
@@ -37,7 +54,7 @@ export default function ChoreCard(props) {
     // console.log("RES FROM PATCH ", res);
 
 
-
+    }
 
   }
 
@@ -72,7 +89,7 @@ export default function ChoreCard(props) {
           {props.due_date}
         </p>
 
-        <button id="chore-progress-button" onClick={choreCardHandler}> Next </button>
+        <button id="chore-progress-button" onClick={choreCardHandler}>{props.button_text} </button>
      
     </div>
   );
