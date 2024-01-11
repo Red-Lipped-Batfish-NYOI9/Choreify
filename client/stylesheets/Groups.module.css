@@ -32,12 +32,16 @@ h2 {
 }
 
 .columnHolder {
+    
     display: flex;
     flex-direction: row;
+    overflow: auto;
+    max-height: 55%;
 }
 
 .column {
     border-radius: 2px;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     margin: 2px;
