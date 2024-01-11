@@ -5,7 +5,7 @@ import { setChoresList } from '../redux/slices/choresSlice.js';
 
 import { fetchChores } from "../redux/slices/choresSlice.js";
 export default function KanbanPage() {
-
+  // const choreList = useSelector(state => state.chores.choreList);
   const dispatch = useDispatch();
   // const chores = useSelector((state) => state.chores.choreList);
 
