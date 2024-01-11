@@ -41,10 +41,15 @@ export default function groupCreationForm() {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify({ groupName, groupMembers }),
+<<<<<<< Updated upstream
     });
 
     const response = await res.json();
     console.log("RESPONSE HERE ", response);
+=======
+    })
+      .then(navigate('/groups'));
+>>>>>>> Stashed changes
   };
 
   return (
