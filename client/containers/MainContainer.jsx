@@ -25,10 +25,10 @@ export default function MainContainer() {
             choreCardsToDo.push(<ChoreCard chore_id={choreList[i].chore_id} chore_status={choreList[i].chore_status} title={choreList[i].title} description={choreList[i].description} due_date={choreList[i].due_date} created_date={choreList[i].created_date}/>);
         }
         if (choreList[i].chore_status === 'in-progress'){
-            choreCardsInProgress.push(<ChoreCard chore_id={choreList[i].chore_id} title={choreList[i].title} description={choreList[i].description} due_date={choreList[i].due_date} created_date={choreList[i].created_date}/>);
+            choreCardsInProgress.push(<ChoreCard chore_id={choreList[i].chore_id} chore_status={choreList[i].chore_status} title={choreList[i].title} description={choreList[i].description} due_date={choreList[i].due_date} created_date={choreList[i].created_date}/>);
         }
         if (choreList[i].chore_status === 'done'){
-            choreCardsDone.push(<ChoreCard chore_id={choreList[i].chore_id} title={choreList[i].title} description={choreList[i].description} due_date={choreList[i].due_date} created_date={choreList[i].created_date}/>);
+            choreCardsDone.push(<ChoreCard chore_id={choreList[i].chore_id} chore_status={choreList[i].chore_status} title={choreList[i].title} description={choreList[i].description} due_date={choreList[i].due_date} created_date={choreList[i].created_date}/>);
         }
         //choreCards.push(<ChoreCard title={choreList[i].title} description={choreList[i].description} due_date={choreList[i].due_date} created_date={choreList[i].created_date}/>);
     }

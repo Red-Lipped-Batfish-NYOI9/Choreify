@@ -17,8 +17,10 @@ queries.createNewGroup = (`INSERT INTO groups`
   + `(group_name)`
   + `VALUES($1)`);
 
-  queries.updateChore = (`UPDATE chores SET chore_status = `
+queries.updateChore = (`UPDATE chores SET chore_status = `
   + `$1 `
   + `WHERE chore_id = $2`);
+
+queries.getAllUsers = ('SELECT * FROM Users;');
 
 module.exports = queries;
