@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 /* 
 Redux Toolkit automatically infers actions
@@ -7,19 +7,19 @@ Inside the slider we create the reducers (update the part of the state regarding
 */
 
 export const choresSlice = createSlice({
-  name: "chores",
+  name: 'chores',
   initialState: {
     choreList: [], // {id:{choreObj}, id: {choreObj}}
-    status: "idle", //status: 'idle' | 'loading' | 'succeeded' | 'failed',
+    status: 'idle', //status: 'idle' | 'loading' | 'succeeded' | 'failed',
     error: null,
   },
   reducers: {
     //Redux uses immer library which detects changes to a "draft state" and produces a brand new immutable state based off those changes
     setChoresList: (state, action) => {
-      console.log("action here " , action)
+      console.log('action here ', action);
       state.choreList = [];
-      for (let i = 0; i < action.payload.choreList.length; i++){
-          state.choreList.push(action.payload.choreList[i]);
+      for (let i = 0; i < action.payload.choreList.length; i++) {
+        state.choreList.push(action.payload.choreList[i]);
       }
     },
     // modify: (state, action) => {
