@@ -10,7 +10,7 @@ export default function ChoreCard(props) {
   const choreList = useSelector(state => state.chores.choreList);
   console.log('this is chorelist in chorecard',choreList)
   const dispatch = useDispatch();
-
+ 
   const choreCardHandler = (e) => {
     //console.log("chore_status ", chore_status);
     console.log("props ", props);
