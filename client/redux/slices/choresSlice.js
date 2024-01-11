@@ -17,7 +17,7 @@ export const choresSlice = createSlice({
     //Redux uses immer library which detects changes to a "draft state" and produces a brand new immutable state based off those changes
     setChoresList: (state, action) => {
       console.log("action here " , action)
-      state.snapsList = [];
+      state.choreList = [];
       for (let i = 0; i < action.payload.choreList.length; i++){
           state.choreList.push(action.payload.choreList[i]);
       }
