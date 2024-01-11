@@ -30,7 +30,7 @@ choreController.createChore = (req, res, next) => {
   db.query(queries.createChore, newChoreData).then((data) => {
     if (data.rows) {
       console.log('this is data rows', data.rows);
-      res.locals.newChore = data.rows; // may need to see what this function actually returns
+      // res.locals.newChore = data.rows; // may need to see what this function actually returns
       next();
     } else {
       next({ err: 'Problem creating new chore in database' });
@@ -49,6 +49,21 @@ choreController.updateChore = (req, res, next) => {
       next();
     } else {
       next({ err: 'Problem updating chore in database' });
+    }
+  });
+};
+
+choreController.deleteChore = (req, res, next) => {
+  const deleteChoreData = req.body;
+  console.log('reached deleteChore Controller with body ', req.body);
+
+  db.query(queries.deleteChore, deleteChoreData).then((data) => {
+    if (data.rows) {
+      console.log('this is data rows', data.rows);
+      res.locals.deletedChore = data.rows; // may need to see what this function actually returns
+      next();
+    } else {
+      next({ err: 'Problem deleting chore in database' });
     }
   });
 };

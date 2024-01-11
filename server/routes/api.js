@@ -33,6 +33,15 @@ router.patch(
   }
 );
 
+router.delete(
+  '/chores',
+  choreController.deleteChore,
+  choreController.getChores,
+  (req, res) => {
+    res.status(200).json(res.locals.choreList);
+  }
+);
+
 // create a rout for getting all group info
 router.get('/groups', groupController.getGroups, (req, res) => {
   res.status(200).json(res.locals.groups);
