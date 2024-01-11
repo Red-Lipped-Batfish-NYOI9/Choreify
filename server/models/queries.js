@@ -3,7 +3,7 @@
 const queries = {};
 
 // eslint-disable-next-line arrow-body-style
-queries.getAllChores = ('SELECT * FROM chores;');
+queries.getAllChores = 'SELECT * FROM chores;';
 
 queries.createChore = (
   `INSERT INTO chores `

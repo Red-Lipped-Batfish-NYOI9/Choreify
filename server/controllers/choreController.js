@@ -4,6 +4,7 @@ const queries = require('../models/queries');
 const choreController = {};
 
 choreController.getChores = (req, res, next) => {
+<<<<<<< Updated upstream
   db.query(queries.getAllChores).then((data) => {
     if (data) {
       // eslint-disable-next-line prefer-destructuring
@@ -13,6 +14,19 @@ choreController.getChores = (req, res, next) => {
       next({ err: 'Problem fetching chores from database' });
     }
   });
+=======
+  db.query(queries.getAllChores)
+    .then((data) => {
+      if (data) {
+        // eslint-disable-next-line prefer-destructuring
+        console.log("DATA.ROWS ~~~~~~~~~~~~~~~~", data.rows);
+        res.locals.choreList = data.rows;
+        next();
+      } else {
+        next({ err: 'Problem fetching chores from database' });
+      }
+    });
+>>>>>>> Stashed changes
 };
 
 choreController.createChore = (req, res, next) => {
