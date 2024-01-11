@@ -37,4 +37,20 @@ choreController.createChore = (req, res, next) => {
   });
 };
 
+choreController.updateChore = (req, res, next) => {
+
+  const updateChoreData = req.body;
+  console.log('reached updateChore Controller with body ', req.body);
+ 
+  db.query(queries.updateChore, updateChoreData).then((data) => {
+    if (data.rows) {
+      console.log('this is data rows', data.rows);
+      res.locals.updatedChore = data.rows; // may need to see what this function actually returns
+      next();
+    } else {
+      next({ err: 'Problem updating chore in database' });
+    }
+  });
+};
+
 module.exports = choreController;

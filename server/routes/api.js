@@ -19,6 +19,10 @@ router.post('/chores', choreController.createChore, choreController.getChores, (
   res.status(200).json(res.locals);
 });
 
+router.patch('/chores', choreController.updateChore, (req, res) => {
+  res.status(200).json(res.locals);
+})
+
 // create a rout for getting all group info
 router.get("/groups", groupController.getGroups, (req, res) => {
   res.status(200).json(res.locals.groups);
