@@ -3,9 +3,15 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import '../styles.css';
 
-export default function ChoreCard(props) {
+import { useSelector, useDispatch } from "react-redux";
+import { setChoresList } from '../redux/slices/choresSlice.js';
 
-  const choreCardHandler = async (e) => {
+export default function ChoreCard(props) {
+  const choreList = useSelector(state => state.chores.choreList);
+  console.log('this is chorelist in chorecard',choreList)
+  const dispatch = useDispatch();
+
+  const choreCardHandler = (e) => {
     //console.log("chore_status ", chore_status);
     console.log("props ", props);
     let nextChore;
@@ -17,17 +23,18 @@ export default function ChoreCard(props) {
     }
     let currChoreId = props.chore_id;
     console.log("props.key ", currChoreId);
-    const res = await fetch("api/chores", {
+    fetch("api/chores", {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify([nextChore, currChoreId])
 
-
     })
+    .then(data => data.json())
+    .then(data => dispatch(setChoresList({choreList: data})))
 
-    console.log("RES FROM PATCH ", res);
+    // console.log("RES FROM PATCH ", res);
 
 
 
@@ -65,7 +72,7 @@ export default function ChoreCard(props) {
           {props.due_date}
         </p>
 
-        <button id="chore_card" onClick={choreCardHandler}> Next </button>
+        <button id="chore-progress-button" onClick={choreCardHandler}> Next </button>
      
     </div>
   );
