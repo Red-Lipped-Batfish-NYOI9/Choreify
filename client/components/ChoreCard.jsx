@@ -8,12 +8,13 @@ import { setChoresList } from '../redux/slices/choresSlice.js';
 
 export default function ChoreCard(props) {
   const choreList = useSelector(state => state.chores.choreList);
-  console.log('this is chorelist in chorecard',choreList)
+  // console.log('this is chorelist in chorecard',choreList)
   const dispatch = useDispatch();
+
  
   const choreCardHandler = (e) => {
     //console.log("chore_status ", chore_status);
-    console.log("props ", props);
+    // console.log("props ", props);
     let nextChore;
     if (props.chore_status === 'to-do'){
       nextChore = 'in-progress';
@@ -26,7 +27,7 @@ export default function ChoreCard(props) {
 
     if (props.chore_status === 'done'){
       //deleting
-    console.log("props.key ", currChoreId);
+    // console.log("props.key ", currChoreId);
     fetch("api/chores", {
       method: 'DELETE',
       headers: {
@@ -52,11 +53,21 @@ export default function ChoreCard(props) {
     .then(data => dispatch(setChoresList({choreList: data})))
 
     // console.log("RES FROM PATCH ", res);
-
-
+    
     }
 
+
+
+    // const dueDate = props.created_date.toLocaleString()
+    // const createdDate = props.due_date.toLocaleString()
+
+    // console.log('here are the Dates', dueDate, createdDate )
+
   }
+  
+  const createdDate = new Date(props.created_date).toLocaleDateString();;
+  const dueDate = new Date(props.due_date).toLocaleDateString();;
+  console.log('here are the Dates', dueDate, createdDate )
 
   return (
     <div id="lane">
@@ -79,14 +90,14 @@ export default function ChoreCard(props) {
         <p>
           Created Date:
           {' '}
-          {props.created_date}
+          {createdDate}
         </p>
   
  
         <p>
           Due Date:
           {' '}
-          {props.due_date}
+          {dueDate}
         </p>
 
         <button id="chore-progress-button" onClick={choreCardHandler}>{props.button_text} </button>

@@ -23,8 +23,19 @@ export default function CreateChore() {
       const ownerTitle = document.getElementById('owner-title').value;
       const dueDate = document.getElementById('due-date').value;
       const choreDescription = document.getElementById('chore-description').value;
+
+      const date = new Date();
+
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear();
+      let day = date.getDate();
       
-      console.log('choreTitle:', choreTitle, 'ownerTitle:', ownerTitle, 'dueDate:', dueDate, 'choreDescription:', choreDescription);
+      let currentDate = `${day}-${month}-${year}`;
+      // This arrangement can be altered based on how we want the date's format to appear.
+      console.log(currentDate)
+
+      
+      console.log('choreTitle:', choreTitle, 'ownerTitle:', ownerTitle, 'dueDate:', currentDate, 'choreDescription:', choreDescription);
       document.getElementById('chore-title').value = '';
       document.getElementById('chore-description').value = '';
       document.getElementById('owner-title').value = '';
@@ -38,7 +49,7 @@ export default function CreateChore() {
         body:
           // (title, description, group_id, chore_status, due_date, assigner_id, created_date)
           // new Date().toLocaleString('en-US')
-          JSON.stringify([choreTitle, choreDescription, 1, 'to-do', dueDate, 1, dueDate]),
+          JSON.stringify([choreTitle, choreDescription, 1, 'to-do', dueDate, 1, currentDate]),
       })
     
       console.log(response);
