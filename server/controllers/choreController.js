@@ -8,6 +8,7 @@ choreController.getChores = (req, res, next) => {
     if (data) {
       // eslint-disable-next-line prefer-destructuring
       res.locals.choreList = data.rows;
+      // console.log('in getChores', res.locals.choreList);
       next();
     } else {
       next({ err: 'Problem fetching chores from database' });
@@ -38,10 +39,9 @@ choreController.createChore = (req, res, next) => {
 };
 
 choreController.updateChore = (req, res, next) => {
-
   const updateChoreData = req.body;
   console.log('reached updateChore Controller with body ', req.body);
- 
+
   db.query(queries.updateChore, updateChoreData).then((data) => {
     if (data.rows) {
       console.log('this is data rows', data.rows);
