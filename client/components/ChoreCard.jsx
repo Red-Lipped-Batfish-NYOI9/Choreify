@@ -7,11 +7,14 @@ export default function ChoreCard(props) {
 
   const choreCardHandler = async (e) => {
     //console.log("chore_status ", chore_status);
-    
+    console.log("props ", props);
     let nextChore;
-    //if (chore_status === 'to-do'){
+    if (props.chore_status === 'to-do'){
       nextChore = 'in-progress';
-    //}
+    }
+    else if (props.chore_status === 'in-progress'){
+      nextChore = 'done';
+    }
     let currChoreId = props.chore_id;
     console.log("props.key ", currChoreId);
     const res = await fetch("api/chores", {
