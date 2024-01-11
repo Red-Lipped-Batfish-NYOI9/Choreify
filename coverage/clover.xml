@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1705007756509" clover="3.2.0">
-  <project timestamp="1705007756509" name="All files">
-    <metrics statements="31" coveredstatements="29" conditionals="4" coveredconditionals="4" methods="7" coveredmethods="6" elements="42" coveredelements="39" complexity="0" loc="31" ncloc="31" packages="2" files="3" classes="3"/>
+<coverage generated="1705009930077" clover="3.2.0">
+  <project timestamp="1705009930077" name="All files">
+    <metrics statements="71" coveredstatements="36" conditionals="12" coveredconditionals="4" methods="16" coveredmethods="6" elements="99" coveredelements="46" complexity="0" loc="71" ncloc="71" packages="2" files="3" classes="3"/>
     <package name="controllers">
-      <metrics statements="19" coveredstatements="19" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
+      <metrics statements="56" coveredstatements="23" conditionals="12" coveredconditionals="4" methods="15" coveredmethods="6"/>
       <file name="choreController.js" path="/Users/tylersavitsky/Projects/choreify-iteration/Choreify/server/controllers/choreController.js">
-        <metrics statements="19" coveredstatements="19" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
+        <metrics statements="56" coveredstatements="23" conditionals="12" coveredconditionals="4" methods="15" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -21,14 +21,51 @@
         <line num="23" count="3" type="stmt"/>
         <line num="24" count="3" type="stmt"/>
         <line num="26" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="75" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="90" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="100" count="1" type="stmt"/>
       </file>
     </package>
     <package name="models">
-      <metrics statements="12" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="15" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="choreifyModels.js" path="/Users/tylersavitsky/Projects/choreify-iteration/Choreify/server/models/choreifyModels.js">
         <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
@@ -39,13 +76,16 @@
         <line num="18" count="0" type="stmt"/>
       </file>
       <file name="queries.js" path="/Users/tylersavitsky/Projects/choreify-iteration/Choreify/server/models/queries.js">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="3" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
       </file>
     </package>
   </project>

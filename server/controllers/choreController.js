@@ -24,7 +24,6 @@ choreController.createChore = (req, res, next) => {
   db.query(queries.createChore, newChoreData)
   .then((data) => {
     if (data.rows) {
-      // res.locals.newChore = data.rows;
       return next();
     } else {
       return next({ err: 'Problem creating new chore in database' });
