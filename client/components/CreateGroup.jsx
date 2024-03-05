@@ -45,26 +45,27 @@ export default function groupCreationForm() {
 
     const response = await res.json();
     console.log("RESPONSE HERE ", response);
+    
   };
 
   return (
     
       <form onSubmit={newGroupHandler}>
-        <label htmlFor="groupName">
+        <label  htmlFor="groupName">
           New Group Name:
           <input
             type="text"
             placeholder="The Savibar Family, Three Blind Mice, Hansel & Gretel, Inc., etc."
-            value={groupName}
+            // value={groupName}
             onChange={(e) => setGroupName(e.target.value)}
           />
         </label>
-        <label htmlFor="memberNames">
+        <label  htmlFor="memberNames">
           Add Members &#40;First Name, Last Name&#41;:
           <input
             type="text"
             placeholder="Jesse Guererro, Thomas Ortiz, etc."
-            value={groupMembers}
+            // value={groupMembers}
             onChange={(e) => setGroupMembers(e.target.value)}
           />
         </label>

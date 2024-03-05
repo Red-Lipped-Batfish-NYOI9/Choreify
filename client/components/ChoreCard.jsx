@@ -71,13 +71,8 @@ export default function ChoreCard(props) {
 
   return (
     <div id="lane">
-      <h2>Chores Not Started</h2>
+      <h2>{props.title}</h2>
  
-        <p>
-          Chore:
-          {' '}
-          {props.title}
-        </p>
    
 
         <p>

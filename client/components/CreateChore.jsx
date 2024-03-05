@@ -47,12 +47,10 @@ export default function CreateChore() {
           'Content-Type': 'application/JSON',
         },
         body:
-          // (title, description, group_id, chore_status, due_date, assigner_id, created_date)
-          // new Date().toLocaleString('en-US')
           JSON.stringify([choreTitle, choreDescription, 1, 'to-do', dueDate, 1, currentDate]),
       })
     
-      console.log(response);
+      console.log('this is response yeahhh',response);
       
        const res = await response.json();
        console.log("RECEIVED DATA AFTER CREATING CHORE ", res);

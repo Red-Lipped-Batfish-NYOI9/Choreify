@@ -20,6 +20,7 @@ router.post(
   choreController.createChore,
   choreController.getChores,
   (req, res) => {
+    console.log('done posting');
     res.status(200).json(res.locals);
   }
 );
