@@ -13,15 +13,16 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.applicationAndLogo} onClick={navigateHome}>
-        <ApplicationAndLogo />
+      <img id="nav-logo" className={styles.logo} src="../public/assets/choreify-logo.png" alt="logo" />
+        {/* <ApplicationAndLogo /> */}
       </div>
       <div className={styles.links}>
         <ul className={styles.pages}>
           <CustomLink to="/home">Home</CustomLink>
-          <CustomLink to="/kanban">Kanban</CustomLink>
+          <CustomLink to="/kanban">Progress Board</CustomLink>
           <CustomLink to="/groups">Groups</CustomLink>
           <CustomLink to="/createNewGroup">Create New Group</CustomLink>
-      </ul>
+        </ul>
       </div>
       <Profile className={styles.profileComponent} />
     </nav>
@@ -41,6 +42,6 @@ function CustomLink({ to, children, ...props }) {
   );
 }
 
-function ApplicationAndLogo() {
-  return <img className={styles.logo} src="../public/assets/logo.jpg" />;
-}
+// function ApplicationAndLogo() {
+//   return <img onClick={navigateHome} className={styles.logo} src="../public/assets/choreify-logo.png" />;
+// }

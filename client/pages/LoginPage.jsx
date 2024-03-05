@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import GoogleOAuthButton from "../components/GoogleOAuthButton.jsx";
 import { useDispatch } from "react-redux";
+import styles from "../stylesheets/LoginPage.module.css";
 
 export default function LoginPage() {
   const dispatch = useDispatch();
@@ -29,12 +30,10 @@ export default function LoginPage() {
   // }, [user]);
 
   return (
-    <div>
-      <div>
-        <h1>Login here:</h1>
-        <GoogleOAuthButton />
-        {/* <button onClick={handleClick}>Login in with Google</button>; */}
-      </div>
+    <div className={styles.LoginPage}>
+      <h1>Login here:</h1>
+      <GoogleOAuthButton />
+      {/* <button onClick={handleClick}>Login in with Google</button>; */}
     </div>
   );
 }

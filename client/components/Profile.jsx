@@ -26,9 +26,9 @@ export default function Profile() {
       </div>
       <div className={styles.nameAndSettings}>
         <span className={styles.name}>
-          {loggedInUser?.username ? loggedInUser?.username : "Please login"}
+          {loggedInUser?.username ? loggedInUser?.username : ""}
         </span>
-        <span className={styles.settings}>Settings</span>
+        {/* <span className={styles.settings}>Settings</span> */}
       </div>
     </div>
   );

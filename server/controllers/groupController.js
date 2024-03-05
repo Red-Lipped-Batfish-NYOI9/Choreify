@@ -4,6 +4,7 @@ const queries = require('../models/queries');
 const groupController = {};
 
 groupController.getGroups = (req, res, next) => {
+  console.log("INSIDE CONTROLLER")
   db.query(queries.getAllGroups)
     .then((data) => {
       // turn the groups data into the format we want

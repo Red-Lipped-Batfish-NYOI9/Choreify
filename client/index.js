@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import { store } from "./redux/store.js";
 import { Provider } from "react-redux";
-import { fetchChores } from "./redux/slices/choresSlice.js";
+//import { fetchChores } from "./redux/slices/choresSlice.js";
 import { BrowserRouter } from "react-router-dom";
 import { useGetAllChoresQuery } from "../client/redux/api/chores/choresApi.js";
 import styles from "./stylesheets/Root.module.css";
@@ -20,5 +20,5 @@ root.render(
     </Provider>
   </div>
 );
-store.dispatch(fetchChores);
+//store.dispatch(fetchChores);
 const { data, error, isLoading } = useGetAllChoresQuery();

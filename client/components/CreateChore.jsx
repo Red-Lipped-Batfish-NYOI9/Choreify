@@ -1,21 +1,88 @@
 import React, { useState } from 'react';
 import '../styles.css';
-// import { useGetAllChoresQuery } from "../redux/api/chores/choresApi.js";
+import { useDispatch } from 'react-redux';
+import { useGetAllChoresQuery } from "../redux/api/chores/choresApi.js";
+import { setChoresList } from '../redux/slices/choresSlice.js';
+
 
 export default function CreateChore() {
-  const [initialChore, setChore] = useState('');
-  const [owner, setOwner] = useState('');
-  const [date, setDate] = useState('');
+  // const [initialChore, setChore] = useState('');
+  // const [owner, setOwner] = useState('');
+  // const [date, setDate] = useState('');
   // const [data, error, isLoading] = useGetAllChoresQuery();
 
-  const someHelperFunction = (e) => {
+  const dispatch = useDispatch();
+
+  const someHelperFunction = async (e) => {
     e.preventDefault();
+
     try {
-      console.log('test');
+      console.log('test', document.getElementById('chore-title').value, document.getElementById('owner-title').value, document.getElementById('due-date').value, document.getElementById('chore-description').value);
+      // send a POST request to the server with the form data
+      const choreTitle = document.getElementById('chore-title').value;
+      const ownerTitle = document.getElementById('owner-title').value;
+      const dueDate = document.getElementById('due-date').value;
+      const choreDescription = document.getElementById('chore-description').value;
+
+      const date = new Date();
+
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear();
+      let day = date.getDate();
+      
+      let currentDate = `${day}-${month}-${year}`;
+      // This arrangement can be altered based on how we want the date's format to appear.
+      console.log(currentDate)
+
+      
+      console.log('choreTitle:', choreTitle, 'ownerTitle:', ownerTitle, 'dueDate:', currentDate, 'choreDescription:', choreDescription);
+      document.getElementById('chore-title').value = '';
+      document.getElementById('chore-description').value = '';
+      document.getElementById('owner-title').value = '';
+      document.getElementById('due-date').value = '';
+
+      const response = await fetch('/api/chores', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/JSON',
+        },
+        body:
+          JSON.stringify([choreTitle, choreDescription, 1, 'to-do', dueDate, 1, currentDate]),
+      })
+    
+      console.log('this is response yeahhh',response);
+      
+       const res = await response.json();
+       console.log("RECEIVED DATA AFTER CREATING CHORE ", res);
+       dispatch(setChoresList(res));
+
     } catch (error) {
       console.log(error);
     }
+    
+    
+
+
   };
+
+  // const sendCreateChore = (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     // const usePostResult = api.endpoints.updatePost.useMutation(options)
+  //     useGetAllChoresQuery(JSON.stringify({
+  //       title: 'cheney is testing',
+  //       description: 'pandawhale',
+  //       group_id: 1,
+  //       chore_status: 'doing',
+  //       due_date: 'as soon as possible',
+  //       assigner_id: 1,
+  //       created_date: new Date().toLocaleString('en-US'),
+  //     }));
+  //     console.log('test', initialChore, owner, date);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <div id="lane" className="createChore">
@@ -26,17 +93,32 @@ export default function CreateChore() {
           <input
             type="text"
             placeholder="Dishes, Laundry, etc..."
-            value={initialChore}
-            onChange={(e) => setChore(e.target.value)}
+            className='create-chore-input'
+            id='chore-title'
+            // value={initialChore}
+            
+          />
+        </label>
+        <label>
+          Chore Description:
+          <input
+            type="text"
+            placeholder="Use cleaning solution, etc..."
+            className='create-chore-input'
+            id='chore-description'
+            // value={initialChore}
+            
           />
         </label>
         <label>
           Owner:
           <input
             type="text"
-            placeholder="Your Name"
-            value={owner}
-            onChange={(e) => setOwner(e.target.value)}
+            placeholder="Name"
+            className='create-chore-input'
+            id="owner-title"
+            // value={owner}
+            // onChange={(e) => setOwner(e.target.value)}
           />
         </label>
         <label>
@@ -44,11 +126,13 @@ export default function CreateChore() {
           <input
             type="text"
             placeholder="MM/DD/YYYY"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+            className='create-chore-input'
+            id='due-date'
+            // value={date}
+            // onChange={(e) => setDate(e.target.value)}
           />
         </label>
-        <button type="submit">Create Chore</button>
+        <button id='create-chore-button' type="submit">Create Chore</button>
       </form>
     </div>
   );

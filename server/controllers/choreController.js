@@ -1,3 +1,4 @@
+const { errorMonitor } = require('events');
 const db = require('../models/choreifyModels');
 const queries = require('../models/queries');
 
@@ -7,34 +8,101 @@ choreController.getChores = (req, res, next) => {
   db.query(queries.getAllChores)
     .then((data) => {
       if (data) {
-        // eslint-disable-next-line prefer-destructuring
         res.locals.choreList = data.rows;
-        next();
+        console.log('got choreeess');
+        return next();
       } else {
-        next({ err: 'Problem fetching chores from database' });
+        return next({ err: 'Problem fetching chores from database' });
       }
+    })
+    .catch((err) => {
+      return next(err);
     });
 };
 
 choreController.createChore = (req, res, next) => {
-  // paramaterize the query
-  // console.log(req.body);
-  // const arr = [title, description, group_id, chore_status, due_date, assigner_id,
-  // created_date] = req.body;
-  // console.log(arr);
-
-  const arr = ['feed the cat', 'feed the cat her favorite cat food', 1, 'assigned', 'end of the week', 1, (new Date()).toLocaleString('en-US')];
-  // pass the params into the function that will insert them in the query
-  // then insert them into the database using db.query
-  db.query(queries.createChore, arr)
+  const newChoreData = req.body;
+  console.log('im in create CHore!', newChoreData);
+  const queryObj = {
+    text: queries.createChore,
+    values: newChoreData,
+  };
+  db.query(queryObj)
     .then((data) => {
       if (data.rows) {
-        res.locals.newChore = data; // may need to see what this function actually returns
+        console.log('created entryyyyyy');
+        return next();
+      } else {
+        return next({ err: 'Problem creating new chore in database' });
+      }
+    })
+    .catch((err) => {
+      return next(err);
+    });
+};
+
+choreController.updateChore = (req, res, next) => {
+  const updateChoreData = req.body;
+  console.log('reached updateChore Controller with body ', req.body);
+
+  db.query(queries.updateChore, updateChoreData).then((data) => {
+    if (data.rows) {
+      console.log('this is data rows', data.rows);
+      res.locals.updatedChore = data.rows; // may need to see what this function actually returns
+      next();
+    } else {
+      next({ err: 'Problem updating chore in database' });
+    }
+  });
+};
+
+choreController.deleteChore = (req, res, next) => {
+  const deleteChoreData = req.body;
+  console.log('reached deleteChore Controller with body ', req.body);
+
+  db.query(queries.deleteChore, deleteChoreData)
+    .then((data) => {
+      if (data.rows) {
+        console.log('this is data rows', data.rows);
+        res.locals.deletedChore = data.rows; // may need to see what this function actually returns
         next();
       } else {
-        next({ err: 'Problem creating new chore in database' });
+        next({ err: 'Problem deleting chore in database' });
       }
+    })
+    .catch((err) => {
+      return next(err);
     });
+};
+
+choreController.updateChore = (req, res, next) => {
+  const updateChoreData = req.body;
+  console.log('reached updateChore Controller with body ', req.body);
+
+  db.query(queries.updateChore, updateChoreData).then((data) => {
+    if (data.rows) {
+      console.log('this is data rows', data.rows);
+      res.locals.updatedChore = data.rows; // may need to see what this function actually returns
+      next();
+    } else {
+      next({ err: 'Problem updating chore in database' });
+    }
+  });
+};
+
+choreController.deleteChore = (req, res, next) => {
+  const deleteChoreData = req.body;
+  console.log('reached deleteChore Controller with body ', req.body);
+
+  db.query(queries.deleteChore, deleteChoreData).then((data) => {
+    if (data.rows) {
+      console.log('this is data rows', data.rows);
+      res.locals.deletedChore = data.rows; // may need to see what this function actually returns
+      next();
+    } else {
+      next({ err: 'Problem deleting chore in database' });
+    }
+  });
 };
 
 module.exports = choreController;
