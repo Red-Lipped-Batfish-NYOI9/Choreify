@@ -15,6 +15,23 @@ export default function groupCreationForm() {
   const [groupMembers, setGroupMembers] = useState('');
   const navigate = useNavigate();
 
+  fetch("/api/users")
+    .then(data => data.json())
+    .then(res => {
+      console.log('GOT USERS ', res);
+      let select = document.getElementById("arr");
+
+      for (let i = 0; i < res.length; i++){
+
+        let currElementOption = document.createElement("option");
+        currElementOption.textContent = res[i].username;
+        currElementOption.value = res[i].username;
+        select.appendChild(currElementOption);
+
+      }
+
+    })
+
   const newGroupHandler = async (e) => {
     e.preventDefault();
     console.log(' groupName ', groupName);
@@ -28,29 +45,33 @@ export default function groupCreationForm() {
 
     const response = await res.json();
     console.log("RESPONSE HERE ", response);
+    
   };
 
   return (
     
       <form onSubmit={newGroupHandler}>
-        <label htmlFor="groupName">
+        <label  htmlFor="groupName">
           New Group Name:
           <input
             type="text"
             placeholder="The Savibar Family, Three Blind Mice, Hansel & Gretel, Inc., etc."
-            value={groupName}
+            // value={groupName}
             onChange={(e) => setGroupName(e.target.value)}
           />
         </label>
-        <label htmlFor="memberNames">
+        <label  htmlFor="memberNames">
           Add Members &#40;First Name, Last Name&#41;:
           <input
             type="text"
             placeholder="Jesse Guererro, Thomas Ortiz, etc."
-            value={groupMembers}
+            // value={groupMembers}
             onChange={(e) => setGroupMembers(e.target.value)}
           />
         </label>
+        <select id="arr">
+            <option>Select User: </option>
+        </select>
         <button className='create-group-button' type="submit">Create Group</button>
       </form>
     
